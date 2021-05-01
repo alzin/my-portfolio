@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client";
-import nature from "../img/nature_about_me.JPG";
+import nature from "../img/nature_home.JPG";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 
@@ -28,10 +28,10 @@ export default function About() {
 
   if (!author) return <div>Loading</div>;
   return (
-    <main className="relative">
-      <img src={nature} alt="" className="absolute w-full" />
+    <main>
+      <img src={nature} alt="nature" className="absolute h-full w-full" />
       <div className="p-10 lg:pt-48 container mx-auto relative">
-        <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
+        <section className="bg-green-800 rounded-lg shadow-2xl  lg:flex p-20 ">
           <img
             src={urlFor(author.authorImage).url()}
             className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
