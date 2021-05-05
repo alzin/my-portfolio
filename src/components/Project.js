@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client";
+import BlockContent from "@sanity/block-content-to-react";
 
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
@@ -31,8 +32,8 @@ export default function Project() {
         <section className="grid gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16">
-                <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
+              <article className="relative bg-white rounded-lg shadow-xl p-2 md:p-16 lg:p-16">
+                <h3 className="text-gray-800 text-xl md:text-3xl lg:text-3xl font-bold mb-2 hover:text-red-700">
                   <a
                     href={project.link}
                     alt={project.title}
@@ -55,9 +56,15 @@ export default function Project() {
                     <strong className="font-bold">Type</strong>:{" "}
                     {project.projectType}
                   </span>
-                  <p className="my-6 text-lg text-gray-700 leading-relaxed">
-                    {project.description}
-                  </p>
+                  <span>
+                    <p className="my-6 text-lg text-gray-700 leading-relaxed">
+                      <BlockContent
+                        blocks={project.description}
+                        projectId="qjtzd2na"
+                        dataset="production"
+                      />
+                    </p>
+                  </span>
                   <a
                     href={project.link}
                     rel="noopener noreferrer"
