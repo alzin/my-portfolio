@@ -1,16 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
 export default function NavBar() {
-  const [isOpen, setisOpen] = useState(false);
-
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-
-  useEffect(() => {
-    setisOpen(true);
-  }, [isMobile]);
-
   return (
     <header className="bg-gray-700">
       <nav className="hidden md:block">
